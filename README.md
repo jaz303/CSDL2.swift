@@ -1,6 +1,12 @@
 # CSDL2.swift
 
-A minimal set of headers to enable usage of SDL2 in Swift.
+A minimal set of headers to enable usage of SDL2 in Swift. Most of the work here is done by LLVM's awesome C integration.
+
+The code needed to use these bindings is ugly; for a cleaner, more "Swift-like" interface to SDL2 functionality, check out [SDL2.swift](https://github.com/jaz303/SDL2.swift) (work in progress) which builds upon these bindings.
+
+## Usage notes
+
+SDL uses `enum` and integers interchangably; as far as I can tell this isn't compatible with Swift's C interop. As a workaround, corresponding `#define`s have been generated for each `enum` value, prefixed with `K_`. Static `#defines` are also generated for values defined by complex macros, such as `SDL_WINDOWPOS_UNDEFINED`. A full list of generated constants can be found in `SDL2_generated_constants.h`.
 
 ## Example
 
@@ -28,5 +34,6 @@ SDL_DestroyWindow(win);
 SDL_Quit();
 ```
 
-## Hacking
+## TODO
 
+  - package as a proper Swift package
