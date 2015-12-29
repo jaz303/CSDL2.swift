@@ -56,5 +56,4 @@ Notes:
 
 ## TODO
 
-  - submodules for image, network etc.
   - package as a proper Swift package
