@@ -1,0 +1,10 @@
+module CSDL2 [system] [extern_c] {
+	header "SDL2.h"
+    export *
+    link "SDL2"
+    //link "SDL2_gfx"
+    //link "SDL2_image"
+    //link "SDL2_mixer"
+    //link "SDL2_net"
+    //link "SDL2_ttf"
+}
