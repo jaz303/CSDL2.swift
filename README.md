@@ -6,6 +6,8 @@ The code needed to use these bindings is ugly; for a cleaner, more "Swift-like" 
 
 ## Usage notes
 
+You must update the path to `SDL.h` in `module.map`. Eventually this step will be handled by the Swift package manager.
+
 SDL uses `enum` and integers interchangably; as far as I can tell this isn't compatible with Swift's C interop. As a workaround, corresponding `#define`s have been generated for each `enum` value, prefixed with `K_`. Static `#defines` are also generated for values defined by complex macros, such as `SDL_WINDOWPOS_UNDEFINED`. A full list of generated constants can be found in `SDL2_generated_constants.h`.
 
 ## Example
@@ -34,6 +36,25 @@ SDL_DestroyWindow(win);
 SDL_Quit();
 ```
 
+## Building
+
+  1. Check out this repo locally
+  2. Write your code in `main.swift`
+  3. Compile with:
+
+```shell
+swiftc -L/usr/local/lib -Xcc -I/usr/include -I ./modules main.swift
+```
+
+Tested with `Apple Swift version 2.2-dev (LLVM 3ebdbb2c7e, Clang f66c5bb67b, Swift 0ddf238ad7)` on OS X.
+
+Notes:
+
+  * `-L/usr/local/lib` should be the library path for locating SDL
+  * `-Xcc -I/usr/include` is required so that any system headers needed by SDL can be found
+  * `-I ./modules` should point to the directory containing a CSDL2 directory (i.e. the checkout out copy of this repo)
+
 ## TODO
 
+  - submodules for image, network etc.
   - package as a proper Swift package
