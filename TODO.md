@@ -1,1 +1,0 @@
-  - [x] generate enums dynamically from headers
