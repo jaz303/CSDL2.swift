@@ -1,1 +1,1 @@
-  - [ ] generate enums dynamically from headers
+  - [x] generate enums dynamically from headers
