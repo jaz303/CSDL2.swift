@@ -4,7 +4,10 @@ BLACKLIST_FILES = [/SDL_test/, /opengles/]
 BLACKLIST_DEFS = [/WINRT/]
 
 includes = []
-defs = []
+defs = %w(
+  WINDOWPOS_UNDEFINED
+  WINDOWPOS_CENTERED
+)
 
 Dir["/usr/local/include/SDL2/SDL*.h"].each do |file|
   next if BLACKLIST_FILES.any? { |b| file =~ b }
