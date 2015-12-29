@@ -2,7 +2,7 @@
 
 A minimal set of headers to enable usage of SDL2 in Swift. Most of the work here is done by LLVM's awesome C integration.
 
-The code needed to use these bindings is ugly; for a cleaner, more "Swift-like" interface to SDL2 functionality, check out [SDL2.swift](https://github.com/jaz303/SDL2.swift) (work in progress) which builds upon these bindings.
+The code needed to use these bindings is ugly; for a cleaner, more "Swift-like" interface to SDL2 functionality, check out [SDL2.swift](https://github.com/jaz303/SDL2.swift) (work in progress) which will build upon these bindings.
 
 ## Usage notes
 
@@ -52,7 +52,7 @@ Notes:
 
   * `-L/usr/local/lib` should be the library path for locating SDL
   * `-Xcc -I/usr/include` is required so that any system headers needed by SDL can be found
-  * `-I ./modules` should point to the directory containing a CSDL2 directory (i.e. the checkout out copy of this repo)
+  * `-I ./modules` should point to the directory containing the CSDL2 directory (i.e. a checked out copy of this repo)
 
 ## TODO
 
