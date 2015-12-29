@@ -1,11 +1,39 @@
 module CSDL2 [system] [extern_c] {
 	header "/usr/local/include/SDL2/SDL.h"
 	header "SDL2_generated_constants.h"
+	link "SDL2"
     export *
-    link "SDL2"
-    //link "SDL2_gfx"
-    //link "SDL2_image"
-    //link "SDL2_mixer"
-    //link "SDL2_net"
-    //link "SDL2_ttf"
+
+    module gfx {
+    	header "/usr/local/include/SDL2/SDL2_gfxPrimitives.h"
+    	header "/usr/local/include/SDL2/SDL2_rotozoom.h"
+    	header "/usr/local/include/SDL2/SDL2_framerate.h"
+    	header "/usr/local/include/SDL2/SDL2_imageFilter.h"
+    	link "SDL2_gfx"
+    	export *
+    }
+
+    module image {
+    	header "/usr/local/include/SDL2/SDL_image.h"
+    	link "SDL2_image"
+    	export *
+    }
+
+    module mixer {
+    	header "/usr/local/include/SDL2/SDL_image.h"
+    	link "SDL2_mixer"
+    	export *
+    }
+
+    module net {
+    	header "/usr/local/include/SDL2/SDL_net.h"
+    	link "SDL2_net"
+    	export *
+    }
+
+    module ttf {
+    	header "/usr/local/include/SDL2/SDL_ttf.h"
+    	link "SDL2_ttf"
+    	export *
+    }
 }
