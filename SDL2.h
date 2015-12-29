@@ -1,4 +1,3 @@
-//#define SDL_MAIN_HANDLED
 #include "/usr/local/include/SDL2/SDL.h"
 
 #define K_SDL_WINDOW_FULLSCREEN 0x00000001
