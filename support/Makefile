@@ -1,5 +1,5 @@
 SDL=/usr/local
-LIBBASE=../libSDL2_swift_extensions
+LIBBASE=libSDL2_swift_extensions
 STATICLIB=$(LIBBASE).a
 DYNAMICLIB=$(LIBBASE).dylib
 CONSTANTS=../SDL2_generated_constants.h
@@ -10,9 +10,11 @@ extensions: $(STATICLIB) $(DYNAMICLIB)
 
 $(STATICLIB): extensions.o
 	ar rcs $@ extensions.o
+	mv $@ ../$@
 
 $(DYNAMICLIB): extensions.o
 	gcc -dynamiclib -undefined suppress -flat_namespace -o $@ extensions.o
+	mv $@ ../$@
 
 $(EXTENSIONS): SDL2_swift_extensions.c
 	
