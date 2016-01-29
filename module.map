@@ -1,7 +1,9 @@
 module CSDL2 [system] [extern_c] {
 	header "/usr/local/include/SDL2/SDL.h"
 	header "SDL2_generated_constants.h"
+    header "SDL2_swift_extensions.h"
 	link "SDL2"
+    link "SDL2_swift_extensions"
     export *
 
     module gfx {

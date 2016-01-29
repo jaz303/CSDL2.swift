@@ -11,7 +11,6 @@ defs = %w(
 
 Dir["/usr/local/include/SDL2/SDL*.h"].each do |file|
   next if BLACKLIST_FILES.any? { |b| file =~ b }
-
   includes << file
   state = :out
   File.open(file).each_line do |line|
