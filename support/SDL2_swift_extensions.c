@@ -12,3 +12,7 @@ int SDL_X_GetSurfaceHeight(SDL_Surface *s) {
 int SDL_X_GetSurfacePitch(SDL_Surface *s) {
 	return s->pitch;
 }
+
+void* SDL_X_GetSurfacePixels(SDL_Surface *s) {
+	return s->pixels;
+}
