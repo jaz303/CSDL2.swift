@@ -1,35 +1,17 @@
 SDL=/usr/local
-LIBBASE=libSDL2_swift_extensions
-STATICLIB=$(LIBBASE).a
-DYNAMICLIB=$(LIBBASE).dylib
 CONSTANTS=../SDL2_generated_constants.h
 
-all: extensions $(CONSTANTS)
-
-extensions: $(STATICLIB) $(DYNAMICLIB)
-
-$(STATICLIB): extensions.o
-	ar rcs $@ extensions.o
-	mv $@ ../$@
-
-$(DYNAMICLIB): extensions.o
-	gcc -dynamiclib -undefined suppress -flat_namespace -o $@ extensions.o
-	mv $@ ../$@
-
-$(EXTENSIONS): SDL2_swift_extensions.c
+all: $(CONSTANTS)
 	
 $(CONSTANTS): constants.c
 	gcc -I$(SDL)/include -o constants constants.c
 	./constants > $@
 	rm constants
 
-extensions.o: SDL2_swift_extensions.c
-	gcc -c -o extensions.o -I$(SDL)/include $<
-
 constants.c: gen.rb
 	ruby gen.rb $(SDL) > constants.c
 
 clean:
-	rm -f $(STATICLIB) $(DYNAMICLIB) $(CONSTANTS) constants.c extensions.o
+	rm -f $(CONSTANTS) constants.c
 
-.PHONY: all extensions clean
+.PHONY: all clean
