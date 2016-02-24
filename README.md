@@ -11,7 +11,7 @@ When first compiling a project that uses this package, the build will fail. To f
     $ cd Packages/CSDL2.swift-$VERSION
     $ ./Hooks/post-install
 
-This step is necessary because SDL uses `enum` and integers interchangably; as far as I can tell this isn't compatible with Swift's C interop. As a workaround, corresponding `#define`s have been generated for each `enum` value, prefixed with `K_`. Static `#defines` are also generated for values defined by complex macros, such as `SDL_WINDOWPOS_UNDEFINED`. A full list of generated constants can be found in `SDL2_generated_constants.h`.
+This step is required because SDL uses `enum` and integers interchangably; as far as I can tell this isn't compatible with Swift's C interop. As a workaround, corresponding `#define`s have been generated for each `enum` value, prefixed with `K_`. Static `#defines` are also generated for values defined by complex macros, such as `SDL_WINDOWPOS_UNDEFINED`. A full list of generated constants can be found in `SDL2_generated_constants.h`. I'd like to find a better solution to this problem so if anyone has one I'm all ears...
 
 If SDL is installed anywhere other than `/usr/local` you will also need to update `module.modulemap` as necessary.
 
