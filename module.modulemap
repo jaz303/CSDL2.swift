@@ -1,4 +1,4 @@
-module CSDL2 [system] [extern_c] {
+module CSDL2 [system] {
 	header "/usr/local/include/SDL2/SDL.h"
 	header "SDL2_generated_constants.h"
 	link "SDL2"
